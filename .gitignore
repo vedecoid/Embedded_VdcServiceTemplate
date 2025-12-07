@@ -1,0 +1,85 @@
+# CMake build
+build/
+Build/
+cmake-build-*/
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+install_manifest.txt
+CTestTestfile.cmake
+_deps/
+
+# VS Code / IDE
+.vs/
+.vscode/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.vcxproj
+*.vcxproj.filters
+*.vcxproj.user
+*.sln
+
+# Build outputs
+*.o
+*.obj
+*.elf
+*.hex
+*.bin
+*.map
+*.lst
+*.lss
+*.sym
+*.d
+
+# Libraries
+*.lib
+*.a
+*.la
+*.lo
+
+# Shared objects
+*.dll
+*.so
+*.so.*
+*.dylib
+
+# Executables
+*.exe
+*.out
+*.app
+
+# ARM/Embedded specific
+*.axf
+*.scvd
+*.uvguix.*
+*.uvoptx
+*.bak
+*.dep
+
+# CPM/Package caches
+CPM_modules/
+_deps/
+
+# Editor/temp
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# Documentation/build logs
+html/
+latex/
+*.log
+*.aux
+*.toc
+
+# Temporary files
+*.tmp
+*.temp
+
+# Archives
+*.tar.gz
+*.zip
