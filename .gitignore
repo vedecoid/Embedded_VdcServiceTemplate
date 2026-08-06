@@ -83,3 +83,8 @@ latex/
 # Archives
 *.tar.gz
 *.zip
+build-verify-api/
+api/doc/Doxyfile
+api/doc/html/
+api/doc/xml/
+api/doc/latex/

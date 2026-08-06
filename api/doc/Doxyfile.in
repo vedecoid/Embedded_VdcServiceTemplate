@@ -1,0 +1,14 @@
+﻿DOXYFILE_ENCODING      = UTF-8
+PROJECT_NAME           = "@VDC_DOCS_PROJECT_NAME@"
+PROJECT_NUMBER         = "@VDC_DOCS_PROJECT_VERSION@"
+OUTPUT_DIRECTORY       = .
+INPUT                  = ..
+EXCLUDE                = doc
+FILE_PATTERNS          = *.h
+RECURSIVE              = YES
+EXTRACT_ALL            = YES
+EXTRACT_PRIVATE        = NO
+OPTIMIZE_OUTPUT_FOR_C  = YES
+GENERATE_HTML          = YES
+GENERATE_LATEX         = NO
+HAVE_DOT               = NO
