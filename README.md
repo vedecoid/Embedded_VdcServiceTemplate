@@ -4,16 +4,19 @@ Lightweight template project for implementing a Vdc-style embedded service.
 
 This repository provides a minimal, well-structured starting point for new Vdc services with:
 
-- A small static library target (`VdcxxxService`) in `src/` + `include/`
+- A small static library target (`VdcxxxService`) with sources in `src/`, public API in `api/`, and internal headers in `inc/`
 - A runnable example (`example/main.c`) to exercise the service in a host or cross-compile build
 - A small `cmake` toolchain and `linker.ld` example for ARM Cortex-M cross-compiles
 - VS Code `launch.json` configured for Cortex-Debug (JLink/OpenOCD) and a GDB option
 
 ## Structure
 
-- `src/` — service implementation (`VdcxxxService.c`)
-- `include/` — public API (`VdcxxxServiceApi.h`)
+- `api/` — public API (`VdcxxxServiceApi.h`); only this tree is installed or exposed via CMake `PUBLIC` includes
+- `inc/` — library-internal headers (CMake `PRIVATE` include only)
+- `src/` — service implementation (`.c` only)
 - `example/` — small example runner (`main.c`)
+- `test/` — unit or integration tests (placeholder in the template)
+- `api/doc/` — Doxygen scaffolding (`*ApiDocs` CMake target)
 - `cmake/` — illustrative `arm-gcc-toolchain.cmake`
 - `linker.ld` — example linker script for quick testing
 - `.vscode/` — launch configurations
