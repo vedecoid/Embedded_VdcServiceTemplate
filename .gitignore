@@ -12,6 +12,7 @@ _deps/
 # VS Code / IDE
 .vs/
 .vscode/
+!.vscode/launch.json
 *.suo
 *.user
 *.userosscache
@@ -84,6 +85,8 @@ latex/
 *.tar.gz
 *.zip
 build-verify-api/
+build-docs-api/
+build-verify/
 api/doc/Doxyfile
 api/doc/html/
 api/doc/xml/
