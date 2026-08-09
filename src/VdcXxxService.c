@@ -22,7 +22,7 @@ VdcXxxServiceContext_t *VdcXxxService_GetContext(void)
 	return &gContext;
 }
 
-eVdcXxxResult VdcXxxService_Init(void)
+VdcXxxResult_e VdcXxxService_Init(void)
 {
 	gContext.initialised    = true;
 	gContext.running        = false;
@@ -36,7 +36,7 @@ eVdcXxxResult VdcXxxService_Init(void)
 	return VDC_XXX_OK;
 }
 
-eVdcXxxResult VdcXxxService_RegisterHooks(const VdcXxxServiceHooks_t *hooks)
+VdcXxxResult_e VdcXxxService_RegisterHooks(const VdcXxxServiceHooks_t *hooks)
 {
 	if (!gContext.initialised)
 	{
@@ -62,7 +62,7 @@ eVdcXxxResult VdcXxxService_RegisterHooks(const VdcXxxServiceHooks_t *hooks)
 	return VDC_XXX_OK;
 }
 
-eVdcXxxResult VdcXxxService_Start(void)
+VdcXxxResult_e VdcXxxService_Start(void)
 {
 	if (!gContext.initialised)
 	{
@@ -83,7 +83,7 @@ eVdcXxxResult VdcXxxService_Start(void)
 	return VDC_XXX_OK;
 }
 
-eVdcXxxResult VdcXxxService_Stop(void)
+VdcXxxResult_e VdcXxxService_Stop(void)
 {
 	if (!gContext.initialised)
 	{
@@ -105,7 +105,7 @@ bool VdcXxxService_IsRunning(void)
 	return gContext.running;
 }
 
-eVdcXxxResult VdcXxxService_Process(void)
+VdcXxxResult_e VdcXxxService_Process(void)
 {
 	int32_t value = 0;
 

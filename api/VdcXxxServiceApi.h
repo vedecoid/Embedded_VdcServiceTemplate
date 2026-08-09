@@ -17,7 +17,13 @@
 #include <stdint.h>
 #include <stdbool.h>
 
-/** Result of every operation that can fail. Never returned as a bare bool. */
+/**
+ * Result of every operation that can fail. Never returned as a bare bool.
+ *
+ * Note the `_e` suffix: standing rule P-7 is that new enums end in `_e` and new
+ * structs in `_t`. It applies to new code only — shipped names such as
+ * `eSensorId` and `eLogLevel` keep their existing form.
+ */
 typedef enum
 {
 	VDC_XXX_OK = 0,             /**< Operation completed.                          */
@@ -26,7 +32,7 @@ typedef enum
 	VDC_XXX_ERR_NOTRUNNING,     /**< Stop()/Process() called on a stopped service. */
 	VDC_XXX_ERR_BADPARAMETER,   /**< A required argument was NULL or out of range. */
 	VDC_XXX_ERR_NOHOOKS         /**< Mandatory hooks were not registered.          */
-} eVdcXxxResult;
+} VdcXxxResult_e;
 
 /**
  * @brief Prepare the service. Must be called once, before any other call.
@@ -34,16 +40,16 @@ typedef enum
  * Does not start processing and does not allocate. Safe to call before the
  * scheduler is running.
  */
-eVdcXxxResult VdcXxxService_Init(void);
+VdcXxxResult_e VdcXxxService_Init(void);
 
 /**
  * @brief Begin processing.
  * @retval VDC_XXX_ERR_NOHOOKS Mandatory hooks were never registered.
  */
-eVdcXxxResult VdcXxxService_Start(void);
+VdcXxxResult_e VdcXxxService_Start(void);
 
 /** @brief Stop processing. Idempotent state is preserved; Start() may follow. */
-eVdcXxxResult VdcXxxService_Stop(void);
+VdcXxxResult_e VdcXxxService_Stop(void);
 
 /** @brief True between a successful Start() and a Stop(). */
 bool VdcXxxService_IsRunning(void);
@@ -55,7 +61,7 @@ bool VdcXxxService_IsRunning(void);
  * service that owns its own FreeRTOS task calls this from that task instead
  * and does not export it — see the README.
  */
-eVdcXxxResult VdcXxxService_Process(void);
+VdcXxxResult_e VdcXxxService_Process(void);
 
 /** @brief Number of successful Process() cycles since Init(). Diagnostics only. */
 uint32_t VdcXxxService_GetProcessedCount(void);

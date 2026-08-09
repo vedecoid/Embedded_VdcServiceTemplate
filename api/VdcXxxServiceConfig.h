@@ -5,11 +5,17 @@
  *
  * @copyright Copyright (c) 2026 Vedeco
  *
- * This is where the middleware-independence rule is discharged. A service may
- * not name a product type — no eSensorId, no TriggerHandle_e, no VdcPubSub, no
- * product time service. Anything it needs from its host arrives as a function
- * pointer in the hooks struct below, which is what lets the same service serve
- * a different product without editing it.
+ * This is where the middleware-independence rule is discharged.
+ *
+ * A service MAY depend on other services — linking VdcLoggingService or
+ * VdcMemAlloc is normal and, for P-3 and P-4, required. What it may not name is
+ * a PRODUCT decision: a product sensor enumeration such as eSensorId, a message
+ * bus, an alarm handler. Those arrive as function pointers in the hooks struct
+ * below, which is what lets the same service serve a different product without
+ * being edited.
+ *
+ * The test: would this service still make sense in a product that does not have
+ * that peer? If yes, link it. If no, it is a hook.
  *
  * Every tunable is #ifndef-guarded so an application can override it from its
  * build without patching the library.
@@ -87,4 +93,4 @@ typedef struct
  * @retval VDC_XXX_ERR_BADPARAMETER @p hooks is NULL, or a mandatory member is.
  * @retval VDC_XXX_ERR_ALREADYRUNNING Hooks cannot change while running.
  */
-eVdcXxxResult VdcXxxService_RegisterHooks(const VdcXxxServiceHooks_t *hooks);
+VdcXxxResult_e VdcXxxService_RegisterHooks(const VdcXxxServiceHooks_t *hooks);

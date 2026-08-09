@@ -37,9 +37,16 @@ provably not part of it.
 - **`P-4` — short-lived allocations come from `VdcMemAlloc` block pools.** This template allocates nothing, so
   there is nothing to show. If your service needs a per-operation buffer, use `BLOCKMALLOC_LARGE` /
   `BLOCKFREE_LARGE`, check for `NULL`, and free on every path including errors.
-- **Independence.** A service may not name a product type — no `eSensorId`, no `TriggerHandle_e`, no
-  `VdcPubSub`, no product time service. Note that `readInput` takes a plain `uint32_t channel` for exactly
-  this reason. Everything the host provides arrives as a function pointer in `VdcXxxServiceHooks_t`.
+- **`P-7` — new `typedef struct` names end in `_t`, new `typedef enum` names end in `_e`.** Hence
+  `VdcXxxResult_e` and `VdcXxxServiceHooks_t`. The `eLogLevel` in the logging shim keeps its name because it
+  must match the shipped declaration — the rule is for new code, not a renaming campaign.
+- **Independence — and it does *not* mean "no dependencies".** A service may depend on other services;
+  linking `VdcLoggingService` or `VdcMemAlloc` is normal, and `P-3`/`P-4` require it. What a service may not
+  name is a **product decision**: a product sensor enumeration such as `eSensorId`, a message bus, an alarm
+  handler. Note that `readInput` takes a plain `uint32_t channel` for exactly this reason. The test is whether
+  the service would still make sense in a product that lacks that peer — if yes, link it; if no, make it a
+  function pointer in `VdcXxxServiceHooks_t`. What is being minimised is **globally shared items**, not
+  dependencies as such.
 
 ## Build and test
 
