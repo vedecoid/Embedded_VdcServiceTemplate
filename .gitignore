@@ -91,3 +91,11 @@ api/doc/Doxyfile
 api/doc/html/
 api/doc/xml/
 api/doc/latex/
+
+# --- generated output; never part of a tagged release ---
+build-*/
+# stray dir created when CPM_SOURCE_CACHE was passed the string OFF
+OFF/
+# Doxygen output generated into the source tree
+doc/html/
+doc/latex/
