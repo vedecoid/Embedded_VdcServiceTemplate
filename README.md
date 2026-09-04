@@ -3,6 +3,8 @@
 The starting point for a new `Embedded_Vdc<Name>Service` repository. Copy it, rename `Xxx`, replace the body
 of `Process()`, and delete what you don't need.
 
+This README **is** the P-5 recipe. Companion pages under [docs/](docs/Architecture.md) point back here.
+
 It is a **working service**, not a skeleton: it builds, runs and passes its tests as-is, so if something
 breaks after you copy it, the breakage is yours. What it demonstrates is the part that is easy to get wrong —
 the lifecycle, the public/internal boundary, and how a service reaches its host without depending on it.
