@@ -65,12 +65,13 @@ if(VDC_XXX_ENABLE_DOCS)
             ${_vdc_docs_dir}/Doxyfile
             @ONLY
         )
-        add_custom_target(XxxServiceApiDocs
+        add_custom_target(XxxServiceApiDocs ALL
             COMMAND ${DOXYGEN_EXECUTABLE} Doxyfile
             WORKING_DIRECTORY ${_vdc_docs_dir}
             COMMENT "Generating VdcXxxService API documentation"
             VERBATIM
         )
+        add_dependencies(XxxServiceApiDocs VdcXxxService)
     else()
         message(STATUS "Doxygen not found - XxxServiceApiDocs target not available")
     endif()
