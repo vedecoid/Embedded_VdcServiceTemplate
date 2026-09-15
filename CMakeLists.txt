@@ -18,6 +18,8 @@ option(VDC_XXX_ENABLE_DOCS   "Generate API docs with Doxygen"  ${_vdc_xxx_standa
 #------------------------------------------------------------------------------
 add_library(VdcXxxService STATIC
     src/VdcXxxService.c
+    inc/VdcXxxService.h
+    inc/VdcXxxServiceLog.h
 )
 
 # api/ is PUBLIC and inc/ is PRIVATE. This is the P-5 boundary expressed in the
