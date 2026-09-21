@@ -16,7 +16,7 @@ set(CMAKE_FIND_ROOT_PATH_MODE_LIBRARY ONLY)
 set(CMAKE_FIND_ROOT_PATH_MODE_INCLUDE ONLY)
 set(CMAKE_FIND_ROOT_PATH_MODE_PACKAGE ONLY)
 
-# -mfloat-abi MUST match PoolCommander_V3/cmake/VdcToolchain.cmake and
+# -mfloat-abi MUST match PcFirmWareV3_00/cmake/VdcToolchain.cmake and
 # Embedded_VdcBoardLibs/PcLpc40xx/TestFirmware/Lpc4078TestToolchain.cmake
 # (both -mfloat-abi=softfp). This is not just a style/warning-level mismatch:
 # several static libraries in this workspace are linked in as prebuilt
